@@ -106,7 +106,7 @@
 
 - **分支保护**:`main` 受保护,**禁止直接 commit**;所有变更走短期功能分支 + PR
 - **PR review**:必须 ≥1 人 review 才能 merge(按原则 7 风险分级);用 `CODEOWNERS` 自动分配关键路径 reviewer
-- **agent commit**(覆盖原则 5 中"自动 commit"语义):自动 commit 到 feature branch,**禁止**直接 `main`;PR merge 由人或 reviewer 触发
+- **agent commit**(覆盖原则 5 中"自动 commit"语义):自动 commit 到功能分支,**禁止**直接 `main`;PR merge 由人或 reviewer 触发
 - **PLAN.md 并发写**(强化阶段 2 的并发写约束):必须短期分支 + PR,**禁**在 main 直接编辑
 - **多 agent 同步**:sync 必须经 PR comment 显式确认,**不**靠主对话推断"已对齐"
 - **追加文档**:
