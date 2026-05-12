@@ -110,7 +110,7 @@
 - 治理:`AGENTS.md` ≤80 行;`PLAN.md` 完整四段
 - ADR:建议
 - 优化纳入:
-  - **A1 启动检查表**:新 agent 首动作 `git status` → `git log --oneline -20` → 读 `AGENTS.md` → `PLAN.md Current Step` → 关联 SoT。**不**信任记忆。
+  - **A1 启动检查表**:新 agent 首动作 `git status` → `git log --oneline -20` → 读 `AGENTS.md` → `PLAN.md Current Step` → 关联 SoT。**不**信任记忆。**若 `AGENTS.md` / `PLAN.md` 不存在**(项目处于阶段 1 中途 abort 状态):扫 `docs/plans/` 现有文档 → 对比当前规模档清单看哪些已生成 / 哪些含未审 `[假设]`/`TBD` → 从中断处继续,先回滚到上一个完整 commit 再续生成。
   - **B1 验证产物**:Current Step 加"验证产物"字段(测试输出/CI run/截图),无 artifact **不**算完成。
   - **B2 引用带坐标**:代码 `file:line`,决策 `ADR-YYYY-MM-DD-NN`,无坐标视为待验证。
   - **B3 diff 而非记忆**:声称变更前先 `git diff`,以 diff 为准。
@@ -225,14 +225,14 @@ requirements.md 生成且 [假设]/TBD 审查清空后,**进 tech-stack.md 前**
 
 - `tech-stack.md` 所有形态共有:语言、核心框架/库(纯脚本无核心库可豁免)、数据库(若有持久化)、包管理
 - `requirements.md` 的**对外接口 + 核心数据形态**(混合形态取并集):
-  - **Web 后端 API**:endpoint 完整列表 + 数据模型字段清单
+  - **Web 后端 API**:endpoint 完整列表 + 数据模型字段清单;**若用实时通信**(websocket / SSE / WebRTC)→ 加消息类型清单 + 状态同步策略
   - **Web 纯前端 / 静态**:页面/路由列表 + 内容组织方式 + 元数据 schema(如 markdown frontmatter)
   - **Web 全栈**:上方"后端"+"前端"并集
   - **移动 / 桌面 app**:核心 screen/view 列表 + 用户操作流 + 与后端通信的接口(若有)
   - **CLI 工具**:子命令列表 + 参数/flag + 输入输出格式
   - **库 / SDK**:公开 API 函数签名 + 关键类型定义
   - **脚本**:触发方式 + 输入位置/格式 + 输出位置/格式
-  - **数据 pipeline / ML**:input/output schema + 处理阶段列表
+  - **数据 pipeline / ML**:input/output schema + 处理阶段列表;**若是 ML 训练**额外:dataset 来源 + model 架构 + 训练配置(hyperparams) + 评估指标;**若是 ML 推理服务**额外:推理接口 + model 加载方式 + batching/缓存策略
 - `architecture.md` 所有形态共有:模块拆分、数据流方向、关键依赖
 - **档 C / D 额外**:SLO/SLA、错误率/延迟上限、密钥管理方案
 
