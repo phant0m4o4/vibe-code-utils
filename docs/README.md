@@ -1,5 +1,7 @@
 # 使用文档
 
+> **想看具体长什么样?** → [examples.md](examples.md) 有 3 个端到端示例(档 A bash 备份 / 档 C indie SaaS / 接入 Python FastAPI)和生成文档样例(requirements / AGENTS / PLAN / ADR)。
+
 ## 使用方法
 
 ### 1. 准备
