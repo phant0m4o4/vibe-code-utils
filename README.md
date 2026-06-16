@@ -9,15 +9,13 @@
 两类东西:
 
 - **怎么干活(行为约束)**:[`AGENTS.md`](AGENTS.md) —— 给 AI 代理的统一行为约束。前半段是通用五原则(吸收自 Karpathy 对 LLM 写码常见缺陷的观察:想清再写 / 先求简 / 外科手术式改动 / 目标驱动 / 说人话),后半段是本仓库特定规则。
-- **干什么(工作流)**:[`docs/workflow.md`](docs/workflow.md) —— 从点子到产品的 7 阶段工作流(锁需求 → MVP → 设计 → 搭骨架 → 迭代 → 验证加固 → 发布反馈),外加贯穿全程的协作原则(确认 gate、不瞎补默认值、决策权与执行权分离、卡住升级求助、状态可接力)。
+- **干什么(工作流)**:[`product-playbook`](.claude/skills/product-playbook/) skill —— 从一个想法到规模化运营的 18 阶段产品全流程陪跑。一次推进一步,每步落地产物、过关卡再继续,按项目规模裁剪。
 
 ## 怎么用
 
-把 [`AGENTS.md`](AGENTS.md) 放进你的项目根目录,支持该约定的 AI 助手会自动读取并据此约束自己的行为;想跑完整的产品流程,就让助手照着 [`docs/workflow.md`](docs/workflow.md) 一阶段一阶段走。
+把 [`AGENTS.md`](AGENTS.md) 放进你的项目根目录,支持该约定的 AI 助手会自动读取并据此约束行为。
 
-## 文档导航
-
-完整文档清单、阅读顺序与维护规则见 [`docs/index.md`](docs/index.md)。
+`product-playbook` 是一个 [Claude Code skill](https://docs.claude.com/en/docs/claude-code/skills):放在 `.claude/skills/` 下,聊产品相关的事时会自动触发。想在所有项目里用,把 `.claude/skills/product-playbook/` 拷到 `~/.claude/skills/`。用法详见 skill 自带的 [README](.claude/skills/product-playbook/README.md)。
 
 ## License
 
